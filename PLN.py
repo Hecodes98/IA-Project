@@ -1,25 +1,26 @@
 import spacy
 import sys
 import recognizer as r
+from spacy_lookup import Entity
+entity = Entity(keywords_list=['buscar', 'victoria', 'ruta', 'san luis'])
 
 
 class NLP:
     def __init__(self, text):
-        self.POS = {}
+        self.POS = dict()
+        self.lemma = dict()
         self.text = text  # audio.get_text()
         self.nlp = spacy.load('es')
         self.doc = self.nlp(self.text)
 
     def getPosDoc(self):
         for token in self.doc:
-            print("Token {}, POS {}, dependencia {}, principal {} head.pos_ {} ".format(
-                token.text, token.pos_, token.dep_, token.head.text, token.head.pos_))
-        for token in self.doc:
-            if token.pos_ in self.POS:
-                self.POS[token.pos_].append(token.text)
-            else:
-                self.POS[token.pos_] = []
-                self.POS[token.pos_].append(token.text)
+            if not token.is_stop:
+                if token.pos_ in self.POS:
+                    self.POS[token.pos_].append([token.text, token.lemma_])
+                else:
+                    self.POS[token.pos_] = []
+                    self.POS[token.pos_].append([token.text, token.lemma_])
         return self.POS
 
     def getPredominantNoun(self):
