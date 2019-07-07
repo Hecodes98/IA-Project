@@ -1,27 +1,25 @@
 import PLN as p
 import recognizer as r
 import constants as c
+import entities as e
+import process_database as pdb
+import sys
+
 
 if __name__ == "__main__":
     mic = r.Recognizer()
-    text = 'Cual es la puntuacion de Avatar'
-    print(text)
+    text = "De cual de las regiones esta ubicada risaralda".lower()
     pln = p.NLP(text)
+    entities = e.get_entities(text)
+    print(entities)
     POS = pln.getPosDoc()
-    print(POS)
-    nouns = POS['NOUN']
-    tables = ['peliculas']
-    for table in c.Tables:
-        for synonymous in c.Tables[table]:
-            for par in nouns:
-                if synonymous in par:
-                    tables.append(synonymous)
-                    nouns.remove(par)
-    print(tables)
+    # print(POS)
 
-    fields = c.Fields[tables[0]]
-    for field in fields:
-        for synonymous in fields[field]:
-            for par in nouns:
-                if synonymous in par:
-                    print(synonymous)
+    if 'NOUN' in POS:
+        nouns = POS['NOUN']
+        tables = pdb.getPossibleTable(nouns)
+        fields = pdb.get_Possible_Fields(nouns)
+        print(tables, entities[0][1], fields)
+        print(c.consulta[tables[0]][entities[0][1]][fields[0]])
+    else:
+        print("No hemos podido procesar tu frase")
