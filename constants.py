@@ -1,8 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# Ya que no tenemos una base del conocimiento tuvimos que tener las posibles maneras de decir
+# palabras y guardar las entidades con las que el usuario podria interactuar
 
-patterns = [{"label": "Colombia", "pattern": 'colombia'},
+patterns = [{"label": "Colombia", "pattern": 'colombia'},  # Aqui tenemos las entidades
             {"label": "Risaralda", "pattern": 'risaralda'},
             {"label": "Antioquia", "pattern": 'antioquia'},
             {"label": "Cundinamarca", "pattern": 'cundinamarca'},
@@ -36,8 +38,8 @@ patterns = [{"label": "Colombia", "pattern": 'colombia'},
                 "lower": "andres"}, {"lower": "y"}, {"lower": "providencia"}]}
             ]
 
-
-Tables = {
+how_many = 'cuántos'
+Tables = {  # Las posibles tablas
     'departamentos': [
         'departamentos',
         'departamento',
@@ -46,13 +48,14 @@ Tables = {
     ]
 }
 
-Fields = {
+Fields = {  # los campos
     'departamentos': {
         'nombreDepto': [
             'nombre',
             'nombres'
         ],
         'poblacionDepto': [
+            'población',
             'poblacion',
             'personas',
             'habitantes',
@@ -90,6 +93,7 @@ Fields = {
         ],
         'fundacionDepto': [
             'fundacion',
+            'fundación',
             'creacion',
             'fundada',
             'fundo',
@@ -100,12 +104,17 @@ Fields = {
 
 }
 
-
-consulta = {
+consulta = {  # Diccionario para consultas de prueba antes de realizar la consulta con la base de datos
     'departamentos': {
         'Risaralda': {
             'capitalDepto': 'Pereira',
-            'regionDepto': 'Andina'
+            'regionDepto': 'Andina',
+            'municipioDepto': ['Dosquebradas', 'Pereira']
+        },
+        'Huila': {
+            'capitalDepto': 'Ibague',
+            'regionDepto': 'Andinas',
+            'municipioDepto': ['Caqueta', 'otra vaina']
         }
     }
 }
