@@ -7,8 +7,11 @@
 **2. Librerías utilizadas/requeridas**
    -Solicitaremos de las siguientes librerías para llevar a cabo correctamente la revisión del código:
    -speech_recognition: Biblioteca para realizar el reconocimiento de voz, con soporte para varios motores y API, online y offline.
+   
    -spaCy: Una biblioteca de software de código abierto para el procesamiento avanzado de lenguaje natural, escrita en los lenguajes de programación Python y Cython.
+   
    -pymongo: PyMongo es una distribución de Python que contiene herramientas para trabajar con MongoDB y es la forma recomendada de trabajar con MongoDB desde Python. Esta documentación intenta explicar todo lo que necesita saber para usar PyMongo.
+   
    -MongoDb
 
    Todas estas librerías se pueden instalar con un simple pip install [NAME]
