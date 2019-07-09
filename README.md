@@ -14,7 +14,7 @@
    
    -MongoDb
 
-   Todas estas librerías se pueden instalar con un simple pip install [NAME]
+   Todas estas librerías se pueden instalar con un simple pip install [NAME], la única diferencia reside en MongoDb, que puedes googlear como instalarlo, es bastante sencillo.
 
 **3. Instalación**
    -En el programa también se encuentra adjunto un archivo llamado db.json, el cual contiene toda la informacion de los departamentos de Colombia que se usaron para este software, con este archivo podrás añadir esta información en tu cluster de Atlas, después de crear tu db desde tu shell de Mongo.
